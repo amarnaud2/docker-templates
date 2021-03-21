@@ -1,0 +1,28 @@
+version: '3.6'
+services:
+  jiradb:
+    image: postgres
+    ports:
+    - "5437:5432"
+    environment:
+      POSTGRES_DB: jira_data
+      POSTGRES_USER: app_user
+      POSTGRES_PASSWORD: password
+    restart: always
+    volumes:
+    - db_data:/var/lib/postgresql/data
+  graphql-engine:
+    image: hasura/graphql-engine:v1.0.0
+    ports:
+    - "8087:8080"
+    depends_on:
+    - "jiradb"
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://app_user:password@jiradb:5432/jira_data
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      ## uncomment next line to set an admin secret
+      # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
+volumes:
+  db_data:
