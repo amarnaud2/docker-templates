@@ -10,5 +10,10 @@ Store the different templates I use to develop with different frameworks/technol
 
 ## Templates list
 - mysql-server: MySQL 5.7 server with persistence in ./data folder
-- ...
+- nginx-proxy-manager
+- postgresql-hasura
+- postgresql-postgrest-swagger
+- prestshop-mariadb-phpmyadmin
+- wordpress-mariadb-apache 
+- ... more to come ...
 
