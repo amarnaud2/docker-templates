@@ -8,7 +8,7 @@
     "port": 3306
   },
   "jwt": {
-    "key": "-----BEGIN RSA PRIVATE KEY-----\n==\n-----END RSA PRIVATE KEY-----",
-    "pub": "-----BEGIN PUBLIC KEY-----\n/LwpdrtfC\n\nMQIDAQAB\n-----END PUBLIC KEY-----"
+    "key": "your_RSA_private_key",
+    "pub": "your_RSA_public_key"
   }
 }
